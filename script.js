@@ -112,3 +112,32 @@ projects.forEach(p => {
   `;
   grid.appendChild(card);
 });
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let emailLogin = document.getElementById('loginEmail').value;
+  let password = document.getElementById('loginPassword').value;
+  if(emailLogin == localStorage.getItem('registeredEmail') && password == localStorage.getItem('registeredPass')) {
+    alert('Authentication successfull' + emailLogin)
+  }
+  else {
+    alert('Incorrect login');
+  }
+});
+
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  localStorage.setItem('registeredName', document.getElementById('registerName').value); 
+  localStorage.setItem('registeredEmail', document.getElementById('registerEmail').value); 
+  localStorage.setItem('registeredPass', document.getElementById('registerPassword').value); 
+  const name = localStorage.getItem('registeredName');
+    alert("Thank you for registering " + name);
+});
+
+document.getElementById('logoutBtn').addEventListener('click', function() {
+  document.getElementById('dashboard').style.display = 'none';
+});
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+});
