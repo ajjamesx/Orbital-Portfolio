@@ -153,17 +153,6 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
   document.getElementById('dashboard').style.display = 'none';
 });
 
-// 🌞 Set default to light, apply saved theme if any
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-theme');
-}
-
-// 🌓 Toggle theme and save preference
-document.getElementById('themeToggle').addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
-  const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
-  localStorage.setItem('theme', currentTheme);
-});
 
 let words = ["Welcome to my Portfolio", "Explore", "Design", "Code"];
 let i = 0, j = 0;
