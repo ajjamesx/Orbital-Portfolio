@@ -1,1 +1,1 @@
-Check out free at https://ajjamesx.github.io/Orbital-Portfolio/
+Check out the preview on https://ajjamesx.github.io/Orbital-Portfolio/
