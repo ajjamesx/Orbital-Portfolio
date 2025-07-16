@@ -72,49 +72,76 @@ const projects = [
   {
     title: "Terrain Generator",
     img: "images/texture.png",
-    description: "Procedural terrain using noise and lighting."
+    description: "Procedural terrain using noise and lighting.",
+    rating: 4.5
   },
   {
     title: "Raycasting Engine",
     img: "images/raycast.png",
-    description: "Classic 3D simulation with shadows and fog."
+    description: "Classic 3D simulation with shadows and fog.",
+    rating: 5
   },
   {
     title: "Interactive 3D Earth",
     img: "images/3dearth.png",
-    description: "Earth orbit, particles, mouse controls and effects."
+    description: "Earth orbit, particles, mouse controls and effects.",
+    rating: 5
   },
   {
     title: "Web Portfolio",
     img: "images/website.png",
-    description: "Built using HTML, CSS and JavaScript."
+    description: "Built using HTML, CSS and JavaScript.",
+    rating: 5
   },
     {
     title: "Tkinter Map With Satelite View",
     img: "images/tkinter_map.png",
-    description: "Interactive map using the TkinterMapView library."
+    description: "Interactive map using the TkinterMapView library.",
+    rating: 4.3
   },
   {
     title: "System Health Monitor",
     img: "images/systemhealth.png",
-    description: "A real-time desktop monitoring tool built with Python's Tkinter GUI library, Matplotlib, and psutil."
+    description: "A real-time desktop monitoring tool built with Python's Tkinter GUI library, Matplotlib, and psutil.",
+    rating: 4.5
   },
   {
     title: "3D Cube Animation",
     img: "images/cube.png",
-    description: "3D Cube Animation with Dynamic Sky, Lighting, and Texture Mapping"
+    description: "3D Cube Animation with Dynamic Sky, Lighting, and Texture Mapping.",
+    rating: 4.5
   },
   {
     title: "Web Piano App",
     img: "images/piano.png",
-    description: "Lightweight piano app built with HTML, CSS, and JavaScript that features both white and black keys."
+    description: "Lightweight piano app built with HTML, CSS, and JavaScript that features both white and black keys.",
+    rating: 4.4
   },
    {
     title: " Hypnotic Spiral Art",
     img: "images/spiral.png",
-    description: "Generative art experiment using the HTML5 canvas element and JavaScript."
+    description: "Generative art experiment using the HTML5 canvas element and JavaScript.",
+    rating: 5
   }
 ];
+
+function generateStars(rating) {
+  let fullStars = Math.floor(rating);
+  let halfStar = rating % 1 >= 0.5;
+  let starsHTML = '';
+
+  for (let i = 0; i < fullStars; i++) {
+    starsHTML += '★';
+  }
+  if (halfStar) {
+    starsHTML += '☆'; // or use a half-star icon if you prefer
+  }
+  while (starsHTML.length < 5) {
+    starsHTML += '☆';
+  }
+
+  return `<div class="star-rating">${starsHTML}</div>`;
+}
 
 const grid = document.getElementById('projectGrid');
 projects.forEach(p => {
@@ -124,6 +151,7 @@ projects.forEach(p => {
     <img src="${p.img}" alt="${p.title}" />
     <h3>${p.title}</h3>
     <p>${p.description}</p>
+    ${generateStars(p.rating || 0)}
   `;
   grid.appendChild(card);
 });
