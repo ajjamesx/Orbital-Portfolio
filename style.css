@@ -122,6 +122,7 @@
       padding: 12px;
       border-radius: 8px;
       text-align: center;
+      overflow: hidden;
     }
 
     .project-card img {
@@ -189,28 +190,60 @@
     }
 
     /* Default (light theme) */
-body {
-  background-color: #f0f0f0;
-  color: #222;
-}
+    body {
+    background-color: #f0f0f0;
+    color: #222;
+    }
 
-/* Dark mode styles */
-body.dark-theme {
-  background-color: #121212;
-  color: #eee;
-}
+    /* Dark mode styles */
+    body.dark-theme {
+    background-color: #121212;
+    color: #eee;
+    }
 
 
-nav a {
-  color: inherit;
-}
+    nav a {
+    color: inherit;
+    }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-}
+    button {
+    background-color: #007bff;
+    color: #fff;
+    }
 
-body.dark-theme button {
-  background-color: #333;
-  color: #eee;
-}
+    body.dark-theme button {
+    background-color: #333;
+    color: #eee;
+    }
+
+    .project-card img {
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
+    }
+
+    .project-card:hover img {
+    transform: scale(1.2); /* Zoom effect */
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+
+    }
+
+    nav {
+    background-color: #101820; /* dark base to let the glow stand out */
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff; /* Light blue glow */
+    }
+
+    nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+    color: #00bfff;
+    text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
+    }
