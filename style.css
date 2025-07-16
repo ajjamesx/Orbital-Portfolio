@@ -194,11 +194,12 @@ body {
   color: #222;
 }
 
-/* Dark theme */
+/* Dark mode styles */
 body.dark-theme {
-  background-color: #1a1a1a;
+  background-color: #121212;
   color: #eee;
 }
+
 
 nav a {
   color: inherit;

@@ -98,6 +98,21 @@ const projects = [
     title: "System Health Monitor",
     img: "images/systemhealth.png",
     description: "A real-time desktop monitoring tool built with Python's Tkinter GUI library, Matplotlib, and psutil."
+  },
+  {
+    title: "3D Cube Animation",
+    img: "images/cube.png",
+    description: "3D Cube Animation with Dynamic Sky, Lighting, and Texture Mapping"
+  },
+  {
+    title: "Web Piano App",
+    img: "images/piano.png",
+    description: "Lightweight piano app built with HTML, CSS, and JavaScript that features both white and black keys."
+  },
+   {
+    title: " Hypnotic Spiral Art",
+    img: "images/spiral.png",
+    description: "Generative art experiment using the HTML5 canvas element and JavaScript."
   }
 ];
 
@@ -138,6 +153,31 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
   document.getElementById('dashboard').style.display = 'none';
 });
 
+// 🌞 Set default to light, apply saved theme if any
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-theme');
+}
+
+// 🌓 Toggle theme and save preference
 document.getElementById('themeToggle').addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
+  const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+  localStorage.setItem('theme', currentTheme);
 });
+
+let words = ["Welcome to my portfolio", "Explore", "Design", "Code"];
+let i = 0, j = 0;
+function type() {
+if (j < words[i].length) {
+    document.getElementById("typewriter").textContent += words[i][j++];
+    setTimeout(type, 100);
+} else {
+    setTimeout(() => {
+    document.getElementById("typewriter").textContent = '';
+    i = (i + 1) % words.length;
+    j = 0;
+    type();
+    }, 1000);
+}
+}
+type();
