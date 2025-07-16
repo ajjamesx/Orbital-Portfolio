@@ -255,7 +255,7 @@
     .navbar {
   display: flex;
   justify-content: center;
-  background: #fff;
+  background: #000;
 }
 
 .nav-links {
