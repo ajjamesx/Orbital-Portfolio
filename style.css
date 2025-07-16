@@ -215,29 +215,57 @@ body.dark-theme button {
   color: #eee;
 }
 
-/* Remove default list styling */
+/* Set default text color for the entire page */
+body, html {
+  color: white;
+}
+
+/* Make sure headings and paragraphs inherit the white color */
+h1, h2, h3, h4, h5, h6,
+p, li, span, a, input, textarea, button {
+  color: white;
+}
+
+.project-card img {
+  transition: transform 0.4s ease;
+  transform-origin: center center;
+}
+
+/* Zoom in on hover */
+.project-card:hover img {
+  transform: scale(1.1);
+  z-index: 1;
+    box-shadow: 0 10px 20px rgba(255,255,255,0.5);
+
+}
+
+
 .nav-list {
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
   margin: 0;
   padding: 0;
   gap: 40px;
 }
 
-/* Style for nav links */
 .nav-list li a {
   color: white;
-  text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 1px; /* optional for spacing between letters */
+  transition: color 0.3s ease;
+
 }
 
+/* Hover style */
 .nav-list li a:hover {
   color: #5e75de;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Mobile responsiveness */
 @media (max-width: 600px) {
   .nav-list {
     flex-direction: column;
