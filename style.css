@@ -247,3 +247,7 @@
     color: #00bfff;
     text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
     }
+
+    * {
+        color: white;
+    }
