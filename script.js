@@ -185,6 +185,7 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
 let words = ["Welcome to my Portfolio", "Explore", "Design", "Code"];
 let i = 0, j = 0;
 function type() {
+  console.log(window.scrollY);
 if (j < words[i].length) {
     document.getElementById("typewriter").textContent += words[i][j++];
     setTimeout(type, 100);
@@ -198,3 +199,50 @@ if (j < words[i].length) {
 }
 }
 type();
+
+const extras = [
+  {
+    title: "Spiral Art 1",
+    img: "images/art1.png",
+    description: "",
+    rating: 4.6
+  },
+  {
+    title: "Spiral Art 2",
+    img: "images/art2.png",
+    description: "",
+    rating: 4.7
+  },
+  {
+    title: "Spiral Art 3",
+    img: "images/art3.png",
+    description: "",
+    rating: 4.8
+  }
+];
+
+const extrasGrid = document.getElementById('extrasGrid');
+extras.forEach(e => {
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.innerHTML = `
+    <img src="${e.img}" alt="${e.title}" />
+    <h3>${e.title}</h3>
+    <p>${e.description}</p>
+    ${generateStars(e.rating || 0)}
+  `;
+  extrasGrid.appendChild(card);
+});
+
+
+function checkScroll() {
+  if(window.scrollY > 1800 && window.scrollY < 2000) {
+    document.getElementById('canvas2').style.display = "block";
+  }
+  else {
+    document.getElementById('canvas2').style.display = "none";
+  }
+  requestAnimationFrame(checkScroll);
+}
+
+checkScroll();
