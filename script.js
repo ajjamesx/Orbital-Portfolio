@@ -127,6 +127,18 @@ const projects = [
     img: "images/spiral.png",
     description: "Generative art experiment using the HTML5 canvas element and JavaScript.",
     rating: 5
+  },
+   {
+    title: " Spiral Art 2",
+    img: "images/art1.png",
+    description: "Generative art experiment using the HTML5 canvas element and JavaScript.",
+    rating: 5
+  },
+   {
+    title: "Spiral Art 3",
+    img: "images/art2.png",
+    description: "Generative art experiment using the HTML5 canvas element and JavaScript.",
+    rating: 5
   }
 
 ];
@@ -205,27 +217,6 @@ if (j < words[i].length) {
 }
 }
 type();
-
-const extras = [
-  {
-    title: "",
-    img: "images/art1.png",
-    description: "",
-    rating: 4.6
-  },
-  {
-    title: "",
-    img: "images/art2.png",
-    description: "",
-    rating: 4.7
-  },
-  {
-    title: "",
-    img: "images/art3.png",
-    description: "",
-    rating: 4.8
-  }
-];
 
 const extrasGrid = document.getElementById('extrasGrid');
 extras.forEach(e => {

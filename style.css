@@ -248,6 +248,9 @@ p, li, span, a, input, textarea, button {
   margin: 0;
   padding: 0;
   gap: 40px;
+  background-color: linear-gradient(to right, #4b6cb7, #182848);
+  width: 3000px;
+  height: 40px;
 }
 
 .nav-list li a {
