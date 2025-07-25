@@ -45,14 +45,13 @@ function rotateAround(p, anchor, angle) {
 function renderSwarm() {
   ctx.fillStyle = 'rgba(0,0,0,0.1)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   for (let p of points) {
     rotateAround(p, center, 0.005);
     const depth = Math.min(1, p.z / 300);
     const r = Math.floor(255 * depth);
     const b = Math.floor(255 * (1 - depth));
     ctx.beginPath();
-    ctx.fillStyle = `rgba(${r}, 0, ${b}, ${0.5 + 0.5 * (1 - depth)})`;
+    ctx.fillStyle = window.scrollY < 1300 ? `rgba(${r}, 0, ${b}, ${0.5 + 0.5 * (1 - depth)})` : `rgba(${window.scrollY/10}, 0, ${depth}, ${255})`;
     ctx.arc(p.x, p.y, 3 * (1 - depth), 0, Math.PI * 2);
     ctx.fill();
   }
@@ -112,6 +111,12 @@ const projects = [
     rating: 4.5
   },
   {
+    title: "3D Cube Animation 2",
+    img: "images/cube2.png",
+    description: "3D Cube Animation with Rainbow hues using HSL and animated depth scaling",
+    rating: 4.5
+  },
+  {
     title: "Web Piano App",
     img: "images/piano.png",
     description: "Lightweight piano app built with HTML, CSS, and JavaScript that features both white and black keys.",
@@ -123,6 +128,7 @@ const projects = [
     description: "Generative art experiment using the HTML5 canvas element and JavaScript.",
     rating: 5
   }
+
 ];
 
 function generateStars(rating) {
@@ -202,19 +208,19 @@ type();
 
 const extras = [
   {
-    title: "Spiral Art 1",
+    title: "",
     img: "images/art1.png",
     description: "",
     rating: 4.6
   },
   {
-    title: "Spiral Art 2",
+    title: "",
     img: "images/art2.png",
     description: "",
     rating: 4.7
   },
   {
-    title: "Spiral Art 3",
+    title: "",
     img: "images/art3.png",
     description: "",
     rating: 4.8
@@ -244,5 +250,21 @@ function checkScroll() {
   }
   requestAnimationFrame(checkScroll);
 }
+
+// JavaScript Scroll Detection
+const pages = document.querySelectorAll('.page');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, { threshold: 0.5 });
+
+pages.forEach(page => observer.observe(page));
+
 
 checkScroll();
